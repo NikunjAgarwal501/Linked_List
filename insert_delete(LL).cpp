@@ -114,6 +114,38 @@ Node* reverse(Node* head){
 	return new_head;
 }
 
+void MidNode(Node* head){
+	Node* slow = head;
+	Node* fast = head;
+	Node* prev = head;
+	while(fast != NULL && fast->next != NULL){
+		prev = slow;
+		slow = slow->next;
+		fast = fast->next;
+		if(fast->next!=NULL)
+		fast = fast->next;
+	}
+	cout<<"the mid node is : "<<prev->data<<endl;
+}
+
+void nthNode(Node* head){
+	int n;
+	cout<<"which node to print from the end : ";
+	cin>>n;
+	Node* temp = head;
+	Node* s = head;
+	int c=n;
+	while(c>0){
+		temp = temp->next;
+		c--;
+	}
+	while(temp!=NULL){
+		s=s->next;
+		temp=temp->next;
+	}
+	cout<<"The nth node from the end is : "<<s->data<<endl;
+}
+
 int main(){
 	int c=5;
 	int data;
@@ -141,7 +173,9 @@ int main(){
 	//head = deleteAtHead(head);
 	//deleteAtTail(head);
 	//deleteAtMid(head);
-	head = reverse(head);
+	//head = reverse(head);
+	//MidNode(head);
+	//nthNode(head);
 	display(head);
 	
 	
